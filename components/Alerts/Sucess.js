@@ -1,17 +1,22 @@
-import '@/styles/globals.css'
-import { SessionProvider } from "next-auth/react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
+const Sucess = () => {
+  toast.success('🦄 Wow so easy!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
+
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
+    <>
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -22,6 +27,9 @@ export default function App({
         pauseOnHover
         theme="light"
       />
-    </SessionProvider>
+      <ToastContainer />
+    </>
   )
 }
+
+export default Sucess
