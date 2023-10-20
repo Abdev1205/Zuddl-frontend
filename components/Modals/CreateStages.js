@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import { ApiUrl } from "../../utils/BaseUrl"
 
 const CreateStages = ({ visible, onClose = () => { }, callback = () => { } }) => {
   if (!visible) return null;
@@ -32,7 +33,7 @@ const CreateStages = ({ visible, onClose = () => { }, callback = () => { } }) =>
         priority: stagesPriority,
       }
       try {
-        const response = await axios.post("http://localhost:4000/api/stages/create", data);
+        const response = await axios.post(`${ApiUrl}/api/stages/create`, data);
         console.log('response', response.data.boardId);
         setCreatingStages(false);
         toast.success('Stages Created Successfully', {

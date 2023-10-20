@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardDeleteModal from '../Modals/CardDeleteModal';
 import CardEditModal from '../Modals/CardEditModal';
 
-const StagesCard = ({ stageId, cardsData, fetchDataAgain = () => { }, reloadData = () => { } }) => {
+const StagesCard = ({ stageId, cardsData, fetchDataAgain = () => { }, reloadData }) => {
   const [hoveredIndex, setHoveredIndex] = useState(-1);
   const [deleteModel, setDeleteModel] = useState(false)
   const [deleteId, setDeleteId] = useState()
   const [editModel, setEditModel] = useState(false)
   const [editId, setEditId] = useState()
+
+  useEffect(() => {
+    reloadData()
+  }, [editModel, deleteModel])
 
   const editCardById = (id) => {
     setEditId(id);

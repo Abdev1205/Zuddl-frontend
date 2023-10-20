@@ -9,6 +9,7 @@ import { redClip, yellowClip, blueClip } from '@/public/assets'
 import Image from 'next/image'
 import CreateCards from '../Modals/CreateCards'
 import StagesCard from './StagesCard'
+import { ApiUrl } from "../../utils/BaseUrl"
 
 const Stages = () => {
   const { data: session } = useSession();
@@ -28,13 +29,13 @@ const Stages = () => {
 
   }
 
-  console.log(reload);
+
 
   const fetchCardData = async () => {
     console.log(router.query.boardId)
     console.log(fetchDataAfterDeleting)
     try {
-      const response = await axios.get(`http://localhost:4000/api/card/${router.query.boardId}/cards`);
+      const response = await axios.get(`${ApiUrl}/api/card/${router.query.boardId}/cards`);
       // setReload(!reload)
       setCardsData(response.data.cards);
       console.log(response.data.cards)
@@ -50,9 +51,10 @@ const Stages = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/board/${router.query.boardId}/stages`);
+      const response = await axios.get(`${ApiUrl}/api/board/${router.query.boardId}/stages`);
       setStagesData(response.data.stages);
       console.log(response.data.stages)
+      console.log(reload);
       // setReload(!reload)
 
     } catch (error) {
@@ -61,7 +63,7 @@ const Stages = () => {
   }
   useEffect(() => {
     fetchData();
-  }, [stageModel, cardsModel, reload]);
+  }, [stageModel, cardsModel]);
 
   return (
     <>

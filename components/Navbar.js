@@ -15,7 +15,7 @@ const Navbar = () => {
   const [createBoards, setCreateBoards] = useState(false)
   return (
     <>
-      <nav className=' sticky top-0 overflow-hidden  flex justify-between items-center w-[100%] h-[4rem] px-[2rem] shadow-md ' >
+      <nav className=' sticky top-0 z-30 overflow-hidden bg-white  flex justify-between items-center w-[100%] h-[4rem] px-[2rem] shadow-md ' >
 
         <div className=' flex items-center mx-[4rem] gap-[3rem]  ' >
           <div>

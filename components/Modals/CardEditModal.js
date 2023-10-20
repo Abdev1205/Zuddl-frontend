@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import { ApiUrl } from "../../utils/BaseUrl"
 
 const CardEditModal = ({ visible, onClose = () => { }, callback = () => { }, stageId, editId }) => {
 
@@ -29,7 +30,7 @@ const CardEditModal = ({ visible, onClose = () => { }, callback = () => { }, sta
   // }), [updatingCard]
 
   const fetchDataForUpdating = async () => {
-    const response = await axios.get(`http://localhost:4000/api/card/${editId}`)
+    const response = await axios.get(`${ApiUrl}/api/card/${editId}`)
     console.log(response.data.cardData.title);
     setFetchData(response.data.cardData)
     console.log(fetchData)
@@ -54,7 +55,7 @@ const CardEditModal = ({ visible, onClose = () => { }, callback = () => { }, sta
         priority: cardPriority,
       }
       try {
-        const response = await axios.put(`http://localhost:4000/api/update/cards/${editId}`, data);
+        const response = await axios.put(`${ApiUrl}/api/update/cards/${editId}`, data);
         console.log('response', response.data.boardId);
         setUpdatingCard(false);
         toast.success('Cards Updated Successfully', {

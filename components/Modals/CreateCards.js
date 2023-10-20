@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
+import { ApiUrl } from "../../utils/BaseUrl"
 
 
 const CreateCards = ({ visible, onClose = () => { }, callback = () => { }, id }) => {
@@ -34,7 +35,7 @@ const CreateCards = ({ visible, onClose = () => { }, callback = () => { }, id })
         priority: cardPriority,
       }
       try {
-        const response = await axios.post("http://localhost:4000/api/cards/create", data);
+        const response = await axios.post(`${ApiUrl}/api/cards/create`, data);
         console.log('response', response.data.boardId);
         setCreatingCard(false);
         toast.success('Cards Created Successfully', {

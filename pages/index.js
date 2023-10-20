@@ -6,6 +6,7 @@ import LoginWrapper from './LoginWrapper'
 import { useSession, signIn, signOut } from "next-auth/react"
 import Navbar from '@/components/Navbar'
 import Sucess from '@/components/Alerts/Sucess'
+import Board from '@/components/Board/Board'
 
 
 const index = () => {
@@ -13,10 +14,8 @@ const index = () => {
     <>
       <LoginWrapper>
         <Navbar />
-        <div className=' flex flex-col justify-center items-center w-[100%] h-[91vh] ' >
-
-          <h1>you are logged in </h1>
-          <button className='  ' onClick={() => signOut()}  >Sign out</button>
+        <div className=' flex flex-col z-10  w-[100%] h-[91vh] bg-secondary   ' >
+          <Board />
         </div>
       </LoginWrapper>
     </>

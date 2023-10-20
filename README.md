@@ -1,40 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Questions :
+In a README in your repo, answer the following (DO NOT IMPLEMENT)
+How would your tables and apis change for the following scenarios. What tables and api endpoints would you add Which tables and api endpoints would need to be updated?
+--If a user can create and edit stages for a particular board. For example instead of Open > In Progress > Done if they want the stages of their task board to be Read > Working > Reviewing > Completed
+If we are working on NoSql database so we have to update Stages collection with specific stage id with proper update data 
+ex we want to update open stages to read stages so we can take that stage id and find that document  then update that document 
+simply find using id --> then update using id --> give sucess or error response
 
-## Getting Started
+--If users can comment on tasks
+For adding features of commenting we can create a new collection and stored comments in this by taking stages and card id as refrence 
+we also have one more method by simplying adding comments in cards document as array but this can increase developer burden and reduces flexibility and increase complexity in database
 
-First, run the development server:
+--How will you do error handling?
+As i am using Node js Javascript for developing a web app in which javascript provide its own error handling , we can also use try and catch to run async opertaion 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun run dev
-```
+there are many methods but I can not discuss all in this single readme 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+WHY I AM LATE FOR Submiting project
+--We have to imporatant industrial training from 21 sep to 19 October so I was not getting enough time for developing projects
+--I can make this project more advance and optimaized 
+--I used Next js in frontend and Node js Express Js and Mongo Db in Backend 
+--I want to deploy this project and then send the link but My favorite render do not support latest Node js so I dont have any free alternative 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Installtaion Steps
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Frontend
+1. Install node modules by running npm install command inside downloaded folder
+2. Run npm run dev to start next js application 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Backend 
+1. Install node modules by running npm install command inside downloaded folder
+2. Create .env file and this MONGO_URL = mongodb+srv://abhay:abhay@cluster0.0rakbqu.mongodb.net/zuddlBackend?retryWrites=true&w=majority
+3. Run npm run dev to start node js server

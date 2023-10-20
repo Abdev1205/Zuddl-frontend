@@ -8,21 +8,20 @@ import { useRouter } from 'next/router';
 import DeleteLottieAnimation from '../Animation/DeleteLottieAnimation';
 import { ApiUrl } from "../../utils/BaseUrl"
 
-const CardDeleteModal = ({ visible, onClose = () => { }, callback = () => { }, id, fetchDataAgain = () => { } }) => {
-
+const BoardDeleteModal = ({ visible, onClose = () => { }, callback = () => { }, deleteId, fetchDataAgain = () => { } }) => {
   if (!visible) return null;
   const { data: session } = useSession();
   const router = useRouter();
-  const [deletingCard, setDeletingCard] = useState(false)
+  const [deletingBoard, setDeletingBoard] = useState(false)
 
-  const deleteCardById = async (e) => {
+  const deleteBoardById = async (e) => {
     e.preventDefault()
-    setDeletingCard(true);
+    setDeletingBoard(true);
 
     try {
-      const response = await axios.delete(`${ApiUrl}/api/delete/cards/${id}`);
-      setDeletingCard(false);
-      toast.success('Cards Deleted Successfully', {
+      const response = await axios.delete(`${ApiUrl}/api/delete/boards/${deleteId}`);
+      setDeletingBoard(false);
+      toast.success('Board Deleted Successfully', {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -38,7 +37,7 @@ const CardDeleteModal = ({ visible, onClose = () => { }, callback = () => { }, i
 
     } catch (error) {
       console.log(error)
-      setDeletingCard(false);
+      setDeletingBoard(false);
       toast.error(error, {
         position: "top-center",
         autoClose: 5000,
@@ -67,8 +66,8 @@ const CardDeleteModal = ({ visible, onClose = () => { }, callback = () => { }, i
           <DeleteLottieAnimation />
           <p className=' font-inter font-[500] text-[.9rem] ' >Are you sure want to delete this Card</p>
           <div className='  flex flex-col gap-[1rem] w-[100%] mt-[1rem]  ' >
-            <button onClick={(e) => deleteCardById(e)} className={` ${deletingCard ? "animate-pulse" : ""} flex gap-[.8rem] justify-center items-center bg-[#DC2626] py-[.6rem] text-white rounded-md mt-[2rem] `} > {deletingCard ? "Deleting Card" : "Delete card"}
-              <div className={` ${deletingCard ? "" : "hidden"} w-[1rem] h-[1rem] border-t-2  border-white rounded-[50%] animate-spin `} />
+            <button onClick={(e) => deleteBoardById(e)} className={` ${deletingBoard ? "animate-pulse" : ""} flex gap-[.8rem] justify-center items-center bg-[#DC2626] py-[.6rem] text-white rounded-md mt-[2rem] `} > {deletingBoard ? "Deleting Board" : "Delete board"}
+              <div className={` ${deletingBoard ? "" : "hidden"} w-[1rem] h-[1rem] border-t-2  border-white rounded-[50%] animate-spin `} />
             </button>
             {/* <button className=' rounded-md  px-[1rem] py-[.6rem] bg-[#DC2626] text-white font-inter  ' >Delete</button> */}
             <button onClick={() => onClose()} className=' rounded-md   py-[.6rem] bg-white border-2 border-[#D1D5DB]   font-inter  ' >Cancel</button>
@@ -79,4 +78,4 @@ const CardDeleteModal = ({ visible, onClose = () => { }, callback = () => { }, i
   )
 }
 
-export default CardDeleteModal
+export default BoardDeleteModal
