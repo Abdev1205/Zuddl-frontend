@@ -24,11 +24,11 @@ WHY I AM LATE FOR Submiting project
 
 Installtaion Steps
 
-Frontend
+Frontend link - https://github.com/Abdev1205/Zuddl-frontend
 1. Install node modules by running npm install command inside downloaded folder
 2. Run npm run dev to start next js application 
 
-Backend 
+Backend link - https://github.com/Abdev1205/Zuddl-Backend
 1. Install node modules by running npm install command inside downloaded folder
 2. Create .env file and this MONGO_URL = mongodb+srv://abhay:abhay@cluster0.0rakbqu.mongodb.net/zuddlBackend?retryWrites=true&w=majority
 3. Run npm run dev to start node js server
