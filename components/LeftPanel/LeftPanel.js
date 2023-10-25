@@ -11,9 +11,9 @@ import { FaCrown } from "react-icons/fa"
 import { useState } from "react";
 const LeftPanel = () => {
   const { data: session } = useSession();
-  const imageUrl = session.user.image;
-  const userName = session.user.name;
-  const userEmail = session.user.email;
+  const imageUrl = session?.user.image;
+  const userName = session?.user.name;
+  const userEmail = session?.user.email;
   const [leftPanelActive, setLeftPanelActive] = useState(true)
   return (
     <>

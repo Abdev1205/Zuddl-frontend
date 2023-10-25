@@ -11,7 +11,7 @@ import { ApiUrl } from "../../utils/BaseUrl"
 
 const Board = () => {
   const { data: session } = useSession();
-  const email = session.user.email;
+  const email = session?.user.email;
   const [userEmail, setUserEmail] = useState(email);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
   const [boards, setBoards] = useState([]);

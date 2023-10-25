@@ -14,7 +14,7 @@ import { ApiUrl } from "../../utils/BaseUrl"
 const Stages = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  const imageUrl = session.user.image;
+  const imageUrl = session?.user.image;
   const [stageModel, setStageModel] = useState(false)
   const [cardsModel, setCardsModel] = useState(false)
   const [fetchDataAfterDeleting, setFetchDataAfterDeleting] = useState(false)

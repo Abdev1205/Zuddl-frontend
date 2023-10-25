@@ -11,7 +11,7 @@ const CreateStages = ({ visible, onClose = () => { }, callback = () => { } }) =>
   if (!visible) return null;
   const { data: session } = useSession();
   const router = useRouter();
-  const userEmail = session.user.email;
+  const userEmail = session?.user.email;
 
 
   const [stagesTitle, setStageTitle] = useState("")

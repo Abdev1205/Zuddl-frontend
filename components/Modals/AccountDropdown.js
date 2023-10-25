@@ -8,7 +8,7 @@ import { MdLogout, MdClose } from "react-icons/md"
 const AccountDropdown = ({ visible, onClose = () => { }, callback = () => { } }) => {
   if (!visible) return null;
   const { data: session } = useSession();
-  const imageUrl = session.user.image;
+  const imageUrl = session?.user.image;
   return (
     <>
       <div

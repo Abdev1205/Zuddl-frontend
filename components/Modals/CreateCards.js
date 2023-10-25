@@ -12,7 +12,7 @@ const CreateCards = ({ visible, onClose = () => { }, callback = () => { }, id })
   if (!visible) return null;
   const { data: session } = useSession();
   const router = useRouter();
-  const userEmail = session.user.email;
+  const userEmail = session?.user.email;
 
 
   const [cardTitle, setCardTitle] = useState("")

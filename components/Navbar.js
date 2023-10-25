@@ -10,7 +10,7 @@ import CreateBoards from './Modals/CreateBoards'
 
 const Navbar = () => {
   const { data: session } = useSession();
-  const imageUrl = session.user.image;
+  const imageUrl = session?.user.image;
   const [accountDropdown, setAccountDropdown] = useState(false)
   const [createBoards, setCreateBoards] = useState(false)
   return (
