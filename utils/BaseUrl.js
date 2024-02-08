@@ -1,4 +1,4 @@
-const ApiUrl = "https://testing.ab-ideasideas.repl.co"
+const ApiUrl = "https://zuddl-backend.onrender.com"
 export {
   ApiUrl
 }

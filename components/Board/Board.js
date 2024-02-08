@@ -54,7 +54,6 @@ const Board = () => {
             boards.map((content, index) => {
               return (
                 <div
-
                   key={index}
                   className={` bg-white border-2 border-[#CFCFCF] px-[.6rem] w-[10rem] py-[.4rem] flex flex-col h-fit gap-[.1rem]  rounded-md   `}
                   onMouseEnter={() => setHoveredIndex(index)}
